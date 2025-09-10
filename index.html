@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>강민기의 게임 개발자 도전기</title>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/materials.spartacodingclub.kr/easygpt/default.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <style>
+        /* 상단 배너 꾸미기 */
+        .hero {
+            background-color: #2c3e50;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        /* 카드 이미지 크기 통일 */
+        .card-img-top {
+            width: 100%;
+            height: 200px;  /* 원하는 고정 높이 */
+            object-fit: cover; /* 가운데 맞추고 넘치면 잘림 */
+        }
+
+        /* 섹션 간격 */
+        section { padding-top: 4rem; }
+    </style>
+</head>
+
+<body>
+    <!-- 네비게이션바: 반응형, 스크롤 시 상단 고정(sticky) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">강민기의 게임 개발자 도전기</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#courses">강의</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#future">미래</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ai">AI & 게임</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            더보기
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                            <li><a class="dropdown-item" href="#resources">자료</a></li>
+                            <li><a class="dropdown-item" href="#contact">문의</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <form class="d-flex" role="search" onsubmit="event.preventDefault(); document.getElementById('searchModal').classList.add('show');">
+                    <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search" id="navSearch">
+                    <button class="btn btn-outline-light" type="submit">검색</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- (옵션) 검색 모달 - 예시로 간단하게 구현 -->
+    <div class="modal" tabindex="-1" id="searchModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">검색 결과</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="document.getElementById('searchModal').classList.remove('show')"></button>
+                </div>
+                <div class="modal-body">
+                    <p>"<span id="searchQuery"></span>"에 대한 간단한 예시 결과입니다.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="document.getElementById('searchModal').classList.remove('show')">닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 홈 섹션 (hero)에 id 추가 -->
+    <section id="home">
+        <div class="hero text-white">
+            <h1 class="fw-bold">강민기의 게임 개발자 도전기</h1>
+            <h2 class="fs-4">게임 개발자가 되려면 어떻게 해야 할까?</h2>
+        </div>
+    </section>
+
+    <!-- 카드 섹션에 ID를 달아 네비게이션과 연결 -->
+    <section id="courses">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+
+                <div class="col">
+                    <div class="card">
+                        <img src="c:\Users\64125\Downloads\언어.jpeg"  class="card-img-top" alt="코딩 이미지">
+                        <div class="card-body">
+                            <h5 class="card-title">코딩 기초 강의</h5>
+                            <p class="card-text">파이썬, C++같은 코딩 언어 배우기</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="c:\Users\64125\Downloads\프로그래밍.jpeg" class="card-img-top" alt="게임 이미지">
+                        <div class="card-body">
+                            <h5 class="card-title">게임 개발자의 미래</h5>
+                            <p class="card-text">게임 개발자의 미래에 대해 알아보자!</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card">
+                        <img src="c:\Users\64125\Downloads\인공지능.jpeg" class="card-img-top" alt="AI 이미지">
+                        <div class="card-body">
+                            <h5 class="card-title">인공지능과 게임의 연결</h5>
+                            <p class="card-text">AI를 활용하여 게임에 적용해보자</p>
+                            <a href="#" class="btn btn-primary">자세히 보기</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 추가 섹션들 (네비 바 링크와 연결 가능한 자리) -->
+    <section id="future" class="container mt-5">
+        <h3>미래</h3>
+        <p>게임 개발자의 진로와 전망에 대한 내용.</p>
+    </section>
+
+    <section id="ai" class="container mt-5">
+        <h3>AI & 게임</h3>
+        <p>AI를 게임에 적용하는 다양한 방법.</p>
+    </section>
+
+    <section id="resources" class="container mt-5">
+        <h3>자료</h3>
+        <p>참고 자료나 링크를 추가할 수 있는 공간.</p>
+    </section>
+
+    <section id="contact" class="container mt-5 mb-5">
+        <h3>문의</h3>
+        <p>문의할 이메일이나 연락처를 적어두세요.</p>
+    </section>
+
+    <script>
+        // 검색 폼 동작 간단 구현 (모달에 검색어 표시)
+        document.querySelector('form[role="search"]').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var q = document.getElementById('navSearch').value.trim();
+            if (!q) return;
+            document.getElementById('searchQuery').textContent = q;
+            // 부트스트랩 모달을 JS로 띄우기
+            var modalEl = document.getElementById('searchModal');
+            modalEl.classList.add('show');
+            modalEl.style.display = 'block';
+            modalEl.setAttribute('aria-modal', 'true');
+            modalEl.removeAttribute('aria-hidden');
+        });
+
+        // 부트스트랩 Collapse가 닫힐 때 active 링크 조정 (간단 구현)
+        var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                navLinks.forEach(function(l) { l.classList.remove('active'); });
+                this.classList.add('active');
+                // 모바일에서 메뉴 접기
+                var bsCollapse = new bootstrap.Collapse(document.getElementById('mainNavbar'), {toggle:false});
+                bsCollapse.hide();
+            });
+        });
+    </script>
+</body>
+
+</html>
